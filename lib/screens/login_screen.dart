@@ -23,11 +23,11 @@ class _LoginScrenState extends State<LoginScren> {
             style: TextStyle(fontSize: 24),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 38),
+            padding: const EdgeInsets.symmetric(vertical: 38),
             child: Image.asset('assets/images/onboarding.jpg'),
           ),
           CustomButton(onPressed: (){},
-            buttontext: 'Google Sign In P',
+            buttontext: 'Google Sign In',
           ),
         ],
       ),
