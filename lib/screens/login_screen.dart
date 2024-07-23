@@ -1,3 +1,4 @@
+import 'package:bharat_connect/resources/auth_methods.dart';
 import 'package:bharat_connect/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ class LoginScren extends StatefulWidget {
 }
 
 class _LoginScrenState extends State<LoginScren> {
+  final AuthMethods _autmethods = AuthMethods();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +28,19 @@ class _LoginScrenState extends State<LoginScren> {
             padding: const EdgeInsets.symmetric(vertical: 38),
             child: Image.asset('assets/images/onboarding.jpg'),
           ),
-          CustomButton(onPressed: (){},
+          CustomButton(
+            onPressed: () async {
+              bool res = await _autmethods.signInWithGoogle(context);
+              // if (res) {
+              //   Navigator.pushReplacement(context, MaterialPageRoute(
+              //     builder: (context) {
+              //       return HomeScreen();
+              //     },
+              //   ));
+              // } else {
+              //   showSnackBar(context, 'Some error occured');
+              // }
+            },
             buttontext: 'Google Sign In',
           ),
         ],
