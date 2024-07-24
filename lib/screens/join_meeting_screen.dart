@@ -102,26 +102,26 @@ class _JoinMeetingScreenState extends State<JoinMeetingScreen> {
                 border: Border.all(color: backgroundColor, width: 2),
               ),
               child: InkWell(
-                child: Center(
+                onTap: _joinMeeting,
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(16),
+                ),
+                child: const Center(
                   child: Text(
                     'Join',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
-                onTap: _joinMeeting,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(16),
-                ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             MeetingOptionsWidget(
                 text: 'Turn off my mic',
                 isMute: isAudioMuted,
                 onChange: onAudioMuted),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             MeetingOptionsWidget(

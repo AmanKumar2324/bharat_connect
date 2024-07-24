@@ -35,12 +35,12 @@ class _HomeMeetingButtonWidgetState extends State<HomeMeetingButtonWidget> {
               color: Colors.white,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(
             widget.text,
-            style: TextStyle(color: Colors.grey),
+            style: const TextStyle(color: Colors.grey),
           )
         ],
       ),

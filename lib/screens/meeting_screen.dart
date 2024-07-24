@@ -48,7 +48,7 @@ class _HistoryMeetingScreenState extends State<MeetingScreen> {
                 text: 'Share Screen')
           ],
         ),
-        Expanded(
+        const Expanded(
           child: Center(
             child: Text(
               'Create/Join meeting with just a click!',
