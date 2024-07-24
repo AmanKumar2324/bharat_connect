@@ -1,5 +1,6 @@
 import 'package:bharat_connect/resources/auth_methods.dart';
 import 'package:bharat_connect/screens/home_screen.dart';
+import 'package:bharat_connect/screens/join_meeting_screen.dart';
 import 'package:bharat_connect/screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => const LoginScren(),
         '/home': (context) => const HomeScreen(),
+        '/join-meeting':(context) => const JoinMeetingScreen(),
       },
       home: StreamBuilder(
         stream: AuthMethods().authChanges(),

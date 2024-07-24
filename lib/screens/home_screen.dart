@@ -1,5 +1,5 @@
+import 'package:bharat_connect/screens/meeting_screen.dart';
 import 'package:bharat_connect/utils/colors.dart';
-import 'package:bharat_connect/widgets/home_meeting_button.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,49 +17,24 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  List<Widget> pages = [
+    const MeetingScreen(),
+    const Text('Meetings'),
+    const Text('Contacts'),
+    const Text('Settings'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Meet & Chat'),
+        title: const Text('Meet & Chat'),
         centerTitle: true,
         backgroundColor: backgroundColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                HomeMeetingButtonWidget(
-                    onPressed: () {},
-                    icon: Icons.videocam,
-                    text: 'New Meeting'),
-                HomeMeetingButtonWidget(
-                    onPressed: () {},
-                    icon: Icons.add_box_rounded,
-                    text: 'Join Meeting'),
-                HomeMeetingButtonWidget(
-                    onPressed: () {},
-                    icon: Icons.calendar_today,
-                    text: 'Schedule'),
-                HomeMeetingButtonWidget(
-                    onPressed: () {},
-                    icon: Icons.arrow_upward_rounded,
-                    text: 'Share Screen')
-              ],
-            ),
-            Expanded(
-              child: Center(
-                child: Text(
-                  'Create/Join meeting with just a click!',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                ),
-              ),
-            ),
-          ],
-        ),
+        child: pages[_page],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: footerColor,
@@ -69,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
         showUnselectedLabels: true,
         onTap: onPageChanged,
         currentIndex: _page,
-        items: [
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.comment_bank), label: 'Meet and Chat'),
           BottomNavigationBarItem(
@@ -78,8 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(Icons.person_outline), label: 'Contacts'),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings_outlined), label: 'Settings'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.comment_bank), label: 'Meet and Chat'),
         ],
       ),
     );
