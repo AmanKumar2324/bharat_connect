@@ -12,9 +12,14 @@ class JitsiMeetMethods {
       required bool isAudioMuted,
       required bool isVideoMuted,
       String userName = ''}) async {
-        //  String? serverUrl = serverText.text.trim().isEmpty ? null : serverText.text;
+    //  String? serverUrl = serverText.text.trim().isEmpty ? null : serverText.text;
     try {
       Map<String, Object> featureFlags = {};
+      String name;
+      if (userName.isEmpty) {
+        userName = _authMethods.user.displayName!;
+      } else
+        name = userName;
       var options = JitsiMeetingOptions(
         roomNameOrUrl: roomName,
         isAudioMuted: isAudioMuted,
@@ -78,6 +83,20 @@ class JitsiMeetMethods {
       );
     } catch (e) {
       print("error: ${e}");
+    }
+
+    Widget _buildTextField({
+      required String labelText,
+      required TextEditingController controller,
+      String? hintText,
+    }) {
+      return TextField(
+        controller: controller,
+        decoration: InputDecoration(
+            border: const OutlineInputBorder(),
+            labelText: labelText,
+            hintText: hintText),
+      );
     }
   }
 }
