@@ -1,3 +1,4 @@
+import 'package:bharat_connect/resources/firestore_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:jitsi_meet_wrapper/jitsi_meet_wrapper.dart';
 
@@ -29,7 +30,7 @@ class JitsiMeetMethods {
         userEmail: _authMethods.user.email,
         userAvatarUrl: _authMethods.user.photoURL,
       );
-
+      FirestoreMethods().addToMeetingHistory(roomName);
       await JitsiMeetWrapper.joinMeeting(
         options: options,
         listener: JitsiMeetingListener(

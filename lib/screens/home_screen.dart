@@ -1,5 +1,8 @@
+import 'package:bharat_connect/resources/auth_methods.dart';
+import 'package:bharat_connect/screens/history_meeting_screen.dart';
 import 'package:bharat_connect/screens/meeting_screen.dart';
 import 'package:bharat_connect/utils/colors.dart';
+import 'package:bharat_connect/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,9 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> pages = [
     const MeetingScreen(),
-    const Text('Meetings'),
+    const HistoryMeetingScreen(),
     const Text('Contacts'),
-    const Text('Settings'),
+    CustomButton(onPressed: AuthMethods().signOut, buttontext: 'Logout')
   ];
 
   @override
@@ -47,12 +50,11 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.comment_bank), label: 'Meet and Chat'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.lock_clock), label: 'Meetings'),
+          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
           BottomNavigationBarItem(
               icon: Icon(Icons.person_outline), label: 'Contacts'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings_outlined), label: 'Settings'),
+              icon: Icon(Icons.logout_outlined), label: 'Logout'),
         ],
       ),
     );
